@@ -21,5 +21,13 @@ Build a dApp frontend that connects a Github organization and a Colony
 
 This project is using the `create-elm-app` boilerplate. More information can be found here in `./dApp/README.md` and on the repo https://github.com/halfzebra/create-elm-app.
 
+## Setup React App (remove this part if this if we decide not to use React)
+  *`cd ./dApp_React`*
+  *`npm install`* to install all dependencies
+  *`npm start`* to start the server
+ 
+ If everything works correctly, you should be able to access *http://localhost:3000/*.
+ We use *webpack-hot-middleware* so you don't need to rebuild js after you make changes (as long as you leave your server running).
+
 ## TODO  
 more steps will be needed once we start using colony & when we're ready to deploy to IPFS.
