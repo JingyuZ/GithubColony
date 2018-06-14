@@ -1,19 +1,17 @@
-# specify the node base image for node version 8
+# We assume the "context" is the root of the repo
+
 FROM node:8
 
-# create app directory
-RUN mkdir -p /usr/src/ipfs-auto-deploy
-WORKDIR /usr/src/ipfs-auto-deploy
+ENV appDir /usr/src/ipfs-auto-deploy/
+RUN mkdir -p /usr/src/ipfs-auto-deploy/
 
-# install app dependencies
-COPY package.json /user/src/ipfs-auto-deploy
+WORKDIR ${appDir}
+
+ADD ./tools/ipfs-auto-deploy/package.json ./
 RUN npm install
 
-# bundle app source
-COPY . /usr/src/ipfs-auto-deploy
+ADD ./tools/ipfs-auto-deploy/* ${appDir}
 
-# expose the application's default port
 EXPOSE 8888
 
-# start the app
-CMD [ "npm", "start" ]
+CMD node index.js
