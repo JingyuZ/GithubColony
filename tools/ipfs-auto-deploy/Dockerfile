@@ -32,4 +32,5 @@ RUN npm run-script build
 # Start the tool, which will build and deploy our dapp
 WORKDIR ${toolDir}
 EXPOSE 8888
+EXPOSE 4001
 CMD npm start
